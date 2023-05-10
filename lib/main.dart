@@ -108,7 +108,7 @@ class _AgeCalculatorState extends State<AgeCalculator> {
                           },
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            height: size.height * 0.0015,
+                            height: size.height * 0.0010,
                             fontSize: size.height * 0.025,
                           ),
                           showCursor: false,
@@ -136,7 +136,7 @@ class _AgeCalculatorState extends State<AgeCalculator> {
                           },
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            height: size.height * 0.0015,
+                            height: size.height * 0.0010,
                             fontSize: size.height * 0.025,
                           ),
                           showCursor: false,
@@ -164,7 +164,7 @@ class _AgeCalculatorState extends State<AgeCalculator> {
                           },
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            height: size.height * 0.0015,
+                            height: size.height * 0.0010,
                             fontSize: size.height * 0.025,
                           ),
                           showCursor: false,
@@ -206,9 +206,12 @@ class _AgeCalculatorState extends State<AgeCalculator> {
                             monthController.clear();
                             yearController.clear();
 
-                            birthDate = null;
-                            birthMonth = null;
-                            birthYear = null;
+                            presetDay = "00";
+                            presetMonth = "00";
+                            presetYear = "00";
+
+                            nextDay = "00";
+                            nextMonth = "00";
                           });
                         },
                         splashColor: Colors.blueAccent,
@@ -263,7 +266,7 @@ class _AgeCalculatorState extends State<AgeCalculator> {
                                 : (30 - (int.parse(birthDate!) - d.day))
                                     .toString();
 
-                            nextMonth = (int.parse(birthMonth!) > d.month)
+                            nextMonth = (int.parse(birthMonth!) >= d.month)
                                 ? (int.parse(birthMonth!) - d.month).toString()
                                 : ((12 - d.month) + int.parse(birthMonth!))
                                     .toString();
